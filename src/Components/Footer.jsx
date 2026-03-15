@@ -1,30 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../assets/Image/aimc-white.png";
 function Footer() {
   return (
     <footer className="w-full bg-gradient-to-b from-[#003049] to-[#0d1b2a] text-white pt-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 pb-20">
         {/* LEFT SECTION */}
         <div>
-          <div className="flex items-center gap-4">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Logo_placeholder.svg/512px-Logo_placeholder.svg.png"
-              alt="logo"
-              className="w-16"
-            />
-
-            <div>
-              <h3 className="text-xl font-semibold leading-tight">
-                PELOTON
-                <br />
-                WORKREADY
-              </h3>
-
-              <p className="text-xs text-gray-400">TRANSFORMING LIVES</p>
-            </div>
-          </div>
-
+          <div className="flex items-center gap-4"></div>
+          <img
+            src={logo}
+            alt="AIMC Logo"
+            className="h-12 md:h-16 lg:h-20 w-auto object-contain"
+          />
           <p className="mt-8 text-gray-300 leading-relaxed max-w-[320px]">
             Your trusted partner in Australian Migration. Led by Dr. Lidia Paul
             (MARN 0957235). We provide expert guidance and personalized

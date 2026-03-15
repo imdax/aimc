@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Info from "./Info";
 import logo from "../assets/Image/aimc-white.png";
+
 export default function Navbar() {
   const [companyOpen, setCompanyOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
@@ -15,9 +15,15 @@ export default function Navbar() {
 
   return (
     <nav className="absolute top-0 left-0 w-full z-50 text-white">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <img src={logo} alt="Hero" className="w-36 h-36 object-cover" />
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="AIMC Logo"
+            className="h-18 sm:h-14 md:h-16 lg:h-36 xl:h-36 w-auto object-contain"
+          />
+        </Link>
 
         {/* DESKTOP MENU */}
         <ul className="hidden lg:flex items-center gap-10 font-medium">
@@ -25,17 +31,17 @@ export default function Navbar() {
             <Link
               to="/"
               onClick={closeMenus}
-              className="hover:text-orange-400 transition"
+              className="hover:text-[#e0e1dd] transition"
             >
               HOME
             </Link>
           </li>
 
-          {/* COMPANY DROPDOWN */}
+          {/* COMPANY */}
           <li className="relative">
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
-              className="flex items-center gap-1 hover:text-orange-400"
+              className="flex items-center gap-1 hover:text-[#e0e1dd]"
             >
               OUR COMPANY
               <i
@@ -116,11 +122,11 @@ export default function Navbar() {
             </Link>
           </li>
 
-          {/* CONTACT DROPDOWN */}
+          {/* CONTACT */}
           <li className="relative">
             <button
               onClick={() => setContactOpen(!contactOpen)}
-              className="flex items-center gap-1 hover:text-orange-400"
+              className="flex items-center gap-1 hover:text-[#e0e1dd]"
             >
               CONTACT US
               <i
@@ -160,34 +166,20 @@ export default function Navbar() {
             Home
           </Link>
 
-          <div>
-            <button
-              onClick={() => setCompanyOpen(!companyOpen)}
-              className="flex items-center justify-between w-full"
-            >
-              Our Company
-              <i className="ri-arrow-down-s-line"></i>
-            </button>
+          <Link to="/about" onClick={closeMenus} className="block">
+            About Us
+          </Link>
 
-            {companyOpen && (
-              <div className="pl-4 mt-2 space-y-2">
-                <Link to="/about" onClick={closeMenus} className="block">
-                  About Us
-                </Link>
-
-                <Link to="/team" onClick={closeMenus} className="block">
-                  Team
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link to="/blog" onClick={closeMenus} className="block">
-            Blog
+          <Link to="/team" onClick={closeMenus} className="block">
+            Team
           </Link>
 
           <Link to="/services" onClick={closeMenus} className="block">
             Services
+          </Link>
+
+          <Link to="/blog" onClick={closeMenus} className="block">
+            Blog
           </Link>
 
           <Link to="/news" onClick={closeMenus} className="block">
@@ -201,6 +193,7 @@ export default function Navbar() {
           <Link to="/testimonials" onClick={closeMenus} className="block">
             Testimonials
           </Link>
+
           <Link to="/contact" onClick={closeMenus} className="block">
             Contact
           </Link>
