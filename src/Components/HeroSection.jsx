@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const sentence =
   "Turning Australian Dreams into Reality with Expert Precision.";
@@ -14,21 +15,22 @@ function HeroSection() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
-      {/* Parallax Background */}
+      {/* Background Image */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1633&auto=format&fit=crop"
-          className="w-full h-[100%] object-cover"
+          alt="Australia skyline"
+          className="w-full h-full object-cover"
         />
       </motion.div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/25"></div>
+      <div className="absolute inset-0 bg-black/25 pointer-events-none"></div>
 
-      {/* Content */}
+      {/* Hero Content */}
       <motion.div
         style={{ y: textY }}
-        className="relative w-full px-6 md:px-16 lg:px-24 xl:px-32 py-20"
+        className="relative z-10 w-full px-6 md:px-16 lg:px-24 xl:px-32 py-20"
       >
         <div className="max-w-[900px]">
           {/* Animated Heading */}
@@ -39,20 +41,9 @@ function HeroSection() {
             {words.map((word, i) => (
               <motion.span
                 key={i}
-                initial={{
-                  opacity: 0,
-                  filter: "blur(10px)",
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  filter: "blur(0px)",
-                  y: 0,
-                }}
-                transition={{
-                  delay: i * 0.18,
-                  duration: 0.5,
-                }}
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ delay: i * 0.18, duration: 0.5 }}
                 className="inline-block mr-3"
               >
                 {word}
@@ -82,13 +73,19 @@ function HeroSection() {
             transition={{ delay: 2.2 }}
             className="flex flex-col sm:flex-row gap-4 mt-10"
           >
-            <button className="bg-[#c1121f] text-white font-semibold py-4 px-8 rounded-lg hover:bg-red-800 transition">
+            <Link
+              to="/contact"
+              className="bg-[#c1121f] text-white font-semibold py-4 px-8 rounded-lg hover:bg-red-800 transition text-center"
+            >
               Get Started Today
-            </button>
+            </Link>
 
-            <button className="border border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-black transition">
+            <Link
+              to="/services"
+              className="border border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-black transition text-center"
+            >
               View Visa Types
-            </button>
+            </Link>
           </motion.div>
         </div>
       </motion.div>
