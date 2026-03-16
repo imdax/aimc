@@ -10,6 +10,7 @@ import ContactForm from "./Pages/ContactForm";
 import Footer from "./Components/Footer";
 import News from "./Pages/News";
 import Blog from "./Pages/Blog";
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   return (
     <>
